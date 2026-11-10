@@ -84,7 +84,7 @@ export default function Contact() {
       </motion.div>
 
       <footer className="mt-16 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-8 text-sm text-slate-500 md:flex-row">
-        <span>© {new Date().getFullYear()} {profile.name}. Crafted with React, Tailwind & Framer Motion.</span>
+        <span>© {new Date().getFullYear()} · Designed & built by {profile.name}</span>
         <a href="#top" className="transition-colors hover:text-white">Back to top ↑</a>
       </footer>
     </section>
