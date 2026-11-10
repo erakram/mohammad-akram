@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Check, Copy, Download, Github, GraduationCap, Mail } from 'lucide-react'
 import { education, profile } from '../data'
+import { track } from '../analytics'
 import { Magnetic, Reveal, SectionTitle } from './ui'
 
 export function Education() {
@@ -32,6 +33,7 @@ export default function Contact() {
   const [copied, setCopied] = useState(false)
   const copy = async () => {
     await navigator.clipboard.writeText(profile.email)
+    track('email-copy')
     setCopied(true)
     setTimeout(() => setCopied(false), 1800)
   }

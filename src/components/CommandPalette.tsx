@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowRight, Bot, Copy, CornerDownLeft, Download, Github, Hash, Mail, Search } from 'lucide-react'
 import { aiProjects, profile } from '../data'
+import { eventForHref, track } from '../analytics'
 
 type Cmd = { id: string; label: string; group: string; icon: typeof Hash; run: () => void }
 
@@ -92,6 +93,10 @@ export default function CommandPalette({ open, setOpen }: { open: boolean; setOp
   const exec = (c?: Cmd) => {
     if (!c) return
     setOpen(false)
+    const ev =
+      c.id === 'cv' ? 'cv-download' : c.id === 'copy-email' ? 'email-copy' : c.id === 'email' ? 'email' : c.id === 'github' ? 'github'
+      : c.id.startsWith('open-') ? eventForHref(aiProjects.find((p) => `open-${p.name}` === c.id)?.url || '') : null
+    if (ev) track(ev)
     setTimeout(c.run, 120)
   }
 
