@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --violet: #8b5cf6;
+  --cyan: #22d3ee;
+  --pink: #ec4899;
+}
+
+html { scroll-behavior: smooth; }
+html, body { overflow-x: clip; }
+html.custom-cursor, html.custom-cursor * { cursor: none !important; }
+::selection { background: rgba(139, 92, 246, 0.45); color: #fff; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #05060f; }
+::-webkit-scrollbar-thumb { background: linear-gradient(var(--violet), var(--cyan)); border-radius: 10px; }
+
+@layer components {
+  .section { @apply relative mx-auto w-full max-w-6xl px-5 py-24 md:py-32; }
+  .glass {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-slate-300;
+  }
+  .text-gradient {
+    background: linear-gradient(90deg, #a78bfa, #22d3ee, #f472b6, #a78bfa);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 8s linear infinite;
+  }
+  .btn-primary {
+    @apply relative inline-flex items-center gap-2 overflow-hidden rounded-full px-6 py-3 font-semibold text-white transition-transform duration-300 hover:scale-[1.04] active:scale-95;
+    background: linear-gradient(120deg, #7c3aed, #2563eb, #06b6d4, #7c3aed);
+    background-size: 300% 100%;
+    animation: shimmer 6s linear infinite;
+    box-shadow: 0 10px 40px -10px rgba(124, 58, 237, 0.7);
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.35) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.8s ease;
+  }
+  .btn-primary:hover::after { transform: translateX(120%); }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 font-semibold text-slate-200 backdrop-blur transition-all duration-300 hover:border-violet-400/60 hover:bg-violet-500/10 hover:text-white;
+  }
+}
+
+/* ---------- Animated border (rotating conic gradient) ---------- */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+.spin-border { position: relative; isolation: isolate; }
+.spin-border::before {
+  content: '';
+  position: absolute; inset: -1px; border-radius: inherit; z-index: -1;
+  background: conic-gradient(from var(--angle), transparent 0deg, var(--violet) 60deg, var(--cyan) 120deg, transparent 180deg, transparent 360deg);
+  animation: spin-angle 5s linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.spin-border:hover::before, .spin-border.always::before { opacity: 1; }
+.spin-border::after {
+  content: '';
+  position: absolute; inset: 1px; border-radius: inherit; z-index: -1;
+  background: #0a0c1b;
+}
+
+/* ---------- Aurora background ---------- */
+.aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.aurora span {
+  position: absolute; border-radius: 9999px; filter: blur(90px); opacity: 0.55; mix-blend-mode: screen;
+}
+.aurora .a1 { width: 520px; height: 520px; background: #7c3aed; top: -120px; left: -80px; animation: blob1 18s ease-in-out infinite; }
+.aurora .a2 { width: 460px; height: 460px; background: #06b6d4; top: 10%; right: -120px; animation: blob2 22s ease-in-out infinite; }
+.aurora .a3 { width: 380px; height: 380px; background: #db2777; bottom: -140px; left: 30%; animation: blob3 20s ease-in-out infinite; opacity: 0.35; }
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 40%, transparent 100%);
+}
+
+.noise::after {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 60; opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Marquee ---------- */
+.marquee { mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.marquee-track { display: flex; width: max-content; animation: marquee 35s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+/* ---------- Orbit rings in hero ---------- */
+.orbit { position: absolute; border-radius: 9999px; border: 1px dashed rgba(167, 139, 250, 0.25); }
+.orbit-spin { animation: spin 30s linear infinite; }
+.orbit-spin-rev { animation: spin 45s linear infinite reverse; }
+.counter-rotate { animation: spin 30s linear infinite reverse; }
+.counter-rotate-rev { animation: spin 45s linear infinite; }
+
+.caret { display: inline-block; width: 3px; margin-left: 4px; background: #22d3ee; animation: blink 1s steps(1) infinite; }
+
+.float { animation: float 6s ease-in-out infinite; }
+.pulse-dot { position: relative; }
+.pulse-dot::after {
+  content: ''; position: absolute; inset: 0; border-radius: 9999px; background: inherit;
+  animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes shimmer { to { background-position: 300% 0; } }
+@keyframes spin-angle { to { --angle: 360deg; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@keyframes ping { 75%, 100% { transform: scale(2.4); opacity: 0; } }
+@keyframes blob1 { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(140px,80px) scale(1.15); } 66% { transform: translate(40px,180px) scale(0.9); } }
+@keyframes blob2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-180px,140px) scale(1.2); } }
+@keyframes blob3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-120px,-120px) scale(1.1); } }
+@keyframes scroll-dot { 0% { transform: translateY(0); opacity: 1; } 80% { transform: translateY(14px); opacity: 0; } 100% { opacity: 0; } }
+.scroll-dot { animation: scroll-dot 1.8s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  html { scroll-behavior: auto; }
+}
