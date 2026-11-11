@@ -2,6 +2,7 @@ import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Menu, X, Download, Command } from 'lucide-react'
 import { profile } from '../data'
+import Logo from './Logo'
 
 const links = [
   { id: 'about', label: 'About' },
@@ -55,9 +56,7 @@ export default function Navbar({ onOpenPalette }: { onOpenPalette: () => void })
           }`}
         >
           <a href="#top" className="flex items-center gap-2 font-display text-lg font-bold text-white">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-violet-500 to-cyan-400 text-sm shadow-lg shadow-violet-500/30">
-              MA
-            </span>
+            <Logo size={38} animate className="drop-shadow-[0_6px_18px_rgba(139,92,246,0.35)] transition-transform duration-500 hover:rotate-[-6deg] hover:scale-110" />
             <span className="hidden sm:inline">
               {profile.firstName}
               <span className="text-cyan-300">.</span>

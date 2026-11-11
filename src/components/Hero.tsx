@@ -4,6 +4,7 @@ import { ArrowDown, Download, Github, Mail, MapPin, Sparkles } from 'lucide-reac
 import { profile } from '../data'
 import { Magnetic } from './ui'
 import { NeuralCanvas } from './creative'
+import Logo from './Logo'
 
 function useTypewriter(words: string[], speed = 70, pause = 1600) {
   const [i, setI] = useState(0)
@@ -199,7 +200,7 @@ export default function Hero() {
           <div className="float absolute inset-[30%]">
             <div className="spin-border always h-full w-full rounded-full">
               <div className="grid h-full w-full place-items-center rounded-full bg-gradient-to-br from-violet-600/30 via-ink-900 to-cyan-500/20">
-                <span className="text-gradient font-display text-6xl font-bold">MA</span>
+                <Logo size={120} tile={false} animate title="Mohammad Akram" />
               </div>
             </div>
             <div className="absolute -inset-6 -z-10 rounded-full bg-violet-600/30 blur-3xl" />

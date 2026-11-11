@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>AI + Code logo concepts — Mohammad Akram</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #05060f; color: #cbd5e1; font-family: Inter, sans-serif; padding: 40px; }
+  h1 { font-family: 'Space Grotesk'; color: #fff; margin: 0 0 6px; }
+  .sub { color: #64748b; margin-bottom: 32px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .card { border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: 22px; background: #0a0c1b; }
+  .tag { font-family: 'JetBrains Mono'; font-size: 12px; color: #22d3ee; }
+  .name { font-family: 'Space Grotesk'; font-size: 21px; color: #fff; margin: 4px 0 6px; font-weight: 700; }
+  .mix { font-family: 'JetBrains Mono'; font-size: 11px; color: #f472b6; margin-bottom: 6px; }
+  .desc { font-size: 13.5px; color: #94a3b8; min-height: 76px; }
+  .hero { display: grid; place-items: center; height: 170px; margin: 12px 0; }
+  .row { display: flex; align-items: center; gap: 16px; padding: 12px 14px; border-radius: 12px; background: #05060f; margin-top: 8px; }
+  .lockup { display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk'; font-weight: 700; color: #fff; font-size: 17px; }
+  .lockup b { color: #67e8f9; }
+  .light { background: #f8fafc; }
+  .light .lockup { color: #0f172a; }
+  .label { font-family: 'JetBrains Mono'; font-size: 11px; color: #64748b; margin-top: 12px; }
+</style>
+</head>
+<body>
+<h1>AI + Code concepts</h1>
+<div class="sub">Each one pairs an AI signal (sparkle ✦ or neural nodes) with a code signal (brackets, braces or a terminal prompt).</div>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a78bfa" /><stop offset=".55" stop-color="#22d3ee" /><stop offset="1" stop-color="#f472b6" />
+    </linearGradient>
+    <linearGradient id="sg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#67e8f9" /><stop offset="1" stop-color="#f472b6" />
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e1b4b" /><stop offset="1" stop-color="#0a0c1b" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.1" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+    <!-- 4-point AI sparkle centred on 0,0 (radius 9) -->
+    <path id="spark" d="M0-9c1 6 3 8 9 9-6 1-8 3-9 9-1-6-3-8-9-9 6-1 8-3 9-9z" />
+
+    <!-- I: Spark Tag — <MA> with an AI sparkle -->
+    <symbol id="I" viewBox="0 0 64 64">
+      <rect x="1" y="1" width="62" height="62" rx="16" fill="url(#bg)" stroke="url(#g)" stroke-opacity=".45" stroke-width="1.5" />
+      <path d="M13 23l-6 9.5 6 9.5M51 23l6 9.5-6 9.5" fill="none" stroke="url(#g)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M18 43V23l7 10.5 7-10.5 7.5 20M25 33.5h11.5" fill="none" stroke="#fff" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" />
+      <use href="#spark" fill="url(#sg)" transform="translate(46 16) scale(.82)" />
+    </symbol>
+
+    <!-- J: Neural Tag — node ligature inside code brackets -->
+    <symbol id="J" viewBox="0 0 64 64">
+      <rect x="1" y="1" width="62" height="62" rx="16" fill="url(#bg)" stroke="url(#g)" stroke-opacity=".45" stroke-width="1.5" />
+      <path d="M12 22l-6 10 6 10M52 22l6 10-6 10" fill="none" stroke="#67e8f9" stroke-opacity=".8" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M18 43V21l7.5 11L33 21l8 22M25.5 32h11.5" fill="none" stroke="url(#g)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+      <g fill="#fff" filter="url(#glow)">
+        <circle cx="18" cy="21" r="2.6" /><circle cx="33" cy="21" r="2.6" /><circle cx="25.5" cy="32" r="2.6" />
+        <circle cx="18" cy="43" r="2" /><circle cx="41" cy="43" r="2" /><circle cx="37" cy="32" r="2" />
+      </g>
+    </symbol>
+
+    <!-- K: Prompt Spark — terminal prompt, MA, sparkle as the cursor -->
+    <symbol id="K" viewBox="0 0 64 64">
+      <rect x="1" y="1" width="62" height="62" rx="16" fill="url(#g)" />
+      <rect x="4" y="4" width="56" height="56" rx="13" fill="#0a0c1b" />
+      <path d="M10 25l6 6.5-6 6.5" fill="none" stroke="#22d3ee" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M21 43V23l7.5 11L36 23l8 20M28.5 34h12.3" fill="none" stroke="#fff" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" />
+      <use href="#spark" fill="url(#sg)" transform="translate(50.5 15) scale(.7)" />
+      <rect x="44" y="48" width="10" height="3.4" rx="1.7" fill="#f472b6" />
+    </symbol>
+
+    <!-- L: Brace Nodes — { neural MA } -->
+    <symbol id="L" viewBox="0 0 64 64">
+      <rect x="1" y="1" width="62" height="62" rx="16" fill="url(#bg)" />
+      <path d="M15 17c-4 0-5.5 2-5.5 5.5v4.5c0 3-1.5 5-4.5 5 3 0 4.5 2 4.5 5v4.5c0 3.5 1.5 5.5 5.5 5.5M49 17c4 0 5.5 2 5.5 5.5v4.5c0 3 1.5 5 4.5 5-3 0-4.5 2-4.5 5v4.5c0 3.5-1.5 5.5-5.5 5.5" fill="none" stroke="url(#g)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M20 43V21l7 10.5L34 21l9 22M27 31.5h12.5" fill="none" stroke="#e2e8f0" stroke-opacity=".9" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+      <g filter="url(#glow)">
+        <circle cx="20" cy="21" r="3" fill="#a78bfa" /><circle cx="34" cy="21" r="3" fill="#818cf8" /><circle cx="27" cy="31.5" r="3.4" fill="#fff" />
+        <circle cx="20" cy="43" r="2.4" fill="#22d3ee" /><circle cx="43" cy="43" r="2.4" fill="#f472b6" /><circle cx="39.5" cy="31.5" r="2.4" fill="#38bdf8" />
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="grid" id="grid"></div>
+
+<script>
+const concepts = [
+  { id: 'I', name: 'Spark Tag', mix: 'code brackets + AI sparkle', desc: 'Clean <MA> in gradient brackets with a sparkle on top. The simplest to read: “developer who builds AI”.' },
+  { id: 'J', name: 'Neural Tag', mix: 'code tag + neural nodes', desc: 'Your Neural Monogram (A) inside code brackets. Keeps the glowing-node idea you liked, adds the code signal.' },
+  { id: 'K', name: 'Prompt Spark', mix: 'terminal prompt + sparkle', desc: 'A “>” prompt, MA, a cursor, and a sparkle — like typing a prompt to an AI. Matches your hero’s typewriter.' },
+  { id: 'L', name: 'Brace Nodes', mix: 'curly braces + agent graph', desc: '{ MA } where every joint is a coloured agent node. Most “multi-agent system” of the set.' },
+]
+const esc = (s) => s.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+const use = (id, s) => `<svg width="${s}" height="${s}"><use href="#${id}"/></svg>`
+document.getElementById('grid').innerHTML = concepts.map(c => `
+  <div class="card">
+    <div class="tag">Concept ${c.id}</div>
+    <div class="name">${c.name}</div>
+    <div class="mix">${esc(c.mix)}</div>
+    <div class="desc">${esc(c.desc)}</div>
+    <div class="hero">${use(c.id, 150)}</div>
+    <div class="label">navbar · dark</div>
+    <div class="row"><div class="lockup">${use(c.id, 36)} Mohammad<b>.</b></div></div>
+    <div class="label">favicon · 32 / 16 px</div>
+    <div class="row">${use(c.id, 32)} ${use(c.id, 16)}</div>
+    <div class="label">on light background</div>
+    <div class="row light"><div class="lockup">${use(c.id, 36)} Mohammad Akram</div></div>
+  </div>`).join('')
+</script>
+</body>
+</html>

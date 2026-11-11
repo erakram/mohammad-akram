@@ -10,6 +10,7 @@ import {
   useVelocity,
 } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
+import Logo from './Logo'
 
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -62,6 +63,7 @@ export function Preloader({ onDone }: { onDone: () => void }) {
             <span className="a1" />
             <span className="a2" />
           </div>
+          <Logo size={88} animate className="relative mb-6 drop-shadow-[0_10px_40px_rgba(139,92,246,0.45)]" />
           <div className="relative overflow-hidden">
             <motion.div
               initial={{ y: '100%' }}
