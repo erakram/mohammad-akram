@@ -20,6 +20,7 @@ export function eventForHref(href: string): string | null {
   const agent = aiProjects.find((p) => href.startsWith(p.url.replace(/\/$/, '')))
   if (agent) return `live-agent-${slug(agent.name)}`
   if (href.startsWith(profile.github)) return 'github'
+  if (href.startsWith(profile.linkedin)) return 'linkedin'
   if (href.startsWith('mailto:')) return 'email'
   return null
 }

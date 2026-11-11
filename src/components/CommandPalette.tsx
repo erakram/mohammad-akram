@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { ArrowRight, Bot, Copy, CornerDownLeft, Download, Github, Hash, Mail, Search } from 'lucide-react'
+import { ArrowRight, Bot, Copy, CornerDownLeft, Download, Github, Linkedin, Hash, Mail, Search } from 'lucide-react'
 import { aiProjects, profile } from '../data'
 import { eventForHref, track } from '../analytics'
 
@@ -57,6 +57,7 @@ export default function CommandPalette({ open, setOpen }: { open: boolean; setOp
         },
       },
       { id: 'email', label: 'Send an email', group: 'Contact', icon: Mail, run: () => (window.location.href = `mailto:${profile.email}`) },
+      { id: 'linkedin', label: 'Open LinkedIn profile', group: 'Contact', icon: Linkedin, run: () => window.open(profile.linkedin, '_blank', 'noopener') },
       { id: 'github', label: 'Open GitHub profile', group: 'Contact', icon: Github, run: () => window.open(profile.github, '_blank', 'noopener') },
       {
         id: 'cv',
@@ -94,7 +95,7 @@ export default function CommandPalette({ open, setOpen }: { open: boolean; setOp
     if (!c) return
     setOpen(false)
     const ev =
-      c.id === 'cv' ? 'cv-download' : c.id === 'copy-email' ? 'email-copy' : c.id === 'email' ? 'email' : c.id === 'github' ? 'github'
+      c.id === 'cv' ? 'cv-download' : c.id === 'copy-email' ? 'email-copy' : c.id === 'email' ? 'email' : c.id === 'github' ? 'github' : c.id === 'linkedin' ? 'linkedin'
       : c.id.startsWith('open-') ? eventForHref(aiProjects.find((p) => `open-${p.name}` === c.id)?.url || '') : null
     if (ev) track(ev)
     setTimeout(c.run, 120)

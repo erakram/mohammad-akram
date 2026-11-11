@@ -16,6 +16,8 @@ export const profile = {
   email: 'aakram1708@gmail.com',
   github: 'https://github.com/erakram',
   githubHandle: 'erakram',
+  linkedin: 'https://www.linkedin.com/in/er-mohammad-akram/',
+  linkedinHandle: 'er-mohammad-akram',
   cv: '/Mohammad_Akram_CV.pdf',
   tagline:
     'I build scalable web & enterprise apps — and lately, AI agents that actually do the work.',

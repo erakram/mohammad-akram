@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { ArrowDown, Download, Github, Mail, MapPin, Sparkles } from 'lucide-react'
+import { ArrowDown, Download, Github, Linkedin, Mail, MapPin, Sparkles } from 'lucide-react'
 import { profile } from '../data'
 import { Magnetic } from './ui'
 import { NeuralCanvas } from './creative'
@@ -150,6 +150,9 @@ export default function Hero() {
             </span>
             <a href={profile.github} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 transition-colors hover:text-white">
               <Github size={15} className="text-violet-300" /> {profile.githubHandle}
+            </a>
+            <a href={profile.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 transition-colors hover:text-white">
+              <Linkedin size={15} className="text-sky-300" /> LinkedIn
             </a>
             <a href={`mailto:${profile.email}`} className="flex items-center gap-1.5 transition-colors hover:text-white">
               <Mail size={15} className="text-pink-300" /> {profile.email}

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Check, Copy, Download, Github, GraduationCap, Mail } from 'lucide-react'
+import { Check, Copy, Download, Github, Linkedin, GraduationCap, Mail } from 'lucide-react'
 import { education, profile } from '../data'
 import { track } from '../analytics'
 import { Magnetic, Reveal, SectionTitle } from './ui'
@@ -75,6 +75,9 @@ export default function Contact() {
           </div>
 
           <div className="mt-8 flex justify-center gap-4">
+            <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="grid h-12 w-12 place-items-center rounded-full border border-white/15 text-slate-300 transition-all hover:-translate-y-1 hover:border-sky-400 hover:text-white">
+              <Linkedin size={20} />
+            </a>
             <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="grid h-12 w-12 place-items-center rounded-full border border-white/15 text-slate-300 transition-all hover:-translate-y-1 hover:border-violet-400 hover:text-white">
               <Github size={20} />
             </a>
